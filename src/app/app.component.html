@@ -1,0 +1,30 @@
+<div class="container " >
+  <h1>
+    Password generator
+  </h1>
+  <div class="form-group">
+    <label class="form-control" for="enter">Enter Length</label>
+    <input class="form-control" type="number" (input)="onChangeLenght($event)" name="enterLength" id="enter">
+  </div>
+  <div class="form-check">
+    <input class="form-check-input" type="checkbox" (change)="onChangeUseLetters($event)" id="useLetters" />
+    <label class="form-check-label" for="useLetters">Use Letters</label>
+  </div>
+  <div class="form-check">
+    <input class="form-check-input" type="checkbox" (change)="onChangeUseNumbers($event)" id="useNumber" />
+    <label class="form-check-label" for="useNumber">Use Number</label>
+  </div>
+  <div class="form-check">
+    <input class="form-check-input" type="checkbox" (change)="onChangeUseSymbols($event)" id="useSymbols" />
+    <label class="form-check-label" for="useSymbols">Use Symbols</label>
+  </div>
+  <div>
+
+    <button class="btn btn-primary mx-auto" [disabled]="!(inputLength && (includeLetters || includeNumbers || includeSymbols))"
+      (click)="onButtonClick()"> Generate!</button>
+  </div>
+  <br>
+  <div *ngIf="password.length > 0" class="form-group">
+    <input class="form-control" placeholder="Your Password" type="text" id="yourPassword" readonly [value]="password" />
+  </div>
+</div>
